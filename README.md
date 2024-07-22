@@ -31,9 +31,11 @@ x11vnc -storepasswd
 Xvfb is a display server that can run on machines with no display hardware and no physical input devices. 
 It emulates a framebuffer using virtual memory. We use it to host a virtual display for the VNC server.
 
+We need to create a script that starts Xvfb, sets the DISPLAY environment variable, 
+starts the desktop environment, and then starts the VNC server.
+
 ```shell
  nano ~/start_vnc.sh
- chmod +x ~/start_vnc.sh
 ```
 
 You will now be in the nano text editor. Paste the following code into the file:
@@ -62,6 +64,12 @@ x11vnc -display :1 -forever -loop -repeat -shared -rfbauth ~/.vnc/passwd
 ```
 
 Save the file with `Ctrl+o`, and then `enter`. Then press `Ctrl+x` to exit nano.
+
+Set the script as executable:
+
+```shell
+chmod +x ~/start_vnc.sh
+```
 
 Now test the script by running it:
 
