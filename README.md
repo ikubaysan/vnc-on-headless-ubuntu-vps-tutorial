@@ -117,6 +117,10 @@ ExecStart=/bin/bash /home/ubuntu/start_vnc.sh
 User=ubuntu
 # Restart the service if it crashes
 Restart=on-failure
+
+[Install]
+# Start the service automatically on boot
+WantedBy=multi-user.target
 ```
 
 Save the file with `Ctrl+o`, and then `enter`. Then press `Ctrl+x` to exit nano.
