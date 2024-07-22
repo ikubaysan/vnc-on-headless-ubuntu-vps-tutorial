@@ -52,6 +52,9 @@ Xvfb :1 -screen 0 1280x720x16 &
 # This tells applications to use the Xvfb display we just started.
 export DISPLAY=:1
 
+# Start the D-Bus session message bus. Needed for the Mate desktop environment and apps like Firefox.
+dbus-launch --exit-with-session &
+
 # Start the Mate desktop environment session
 # This will initialize the Mate desktop environment on the virtual display.
 mate-session &
