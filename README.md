@@ -60,6 +60,7 @@ mate-session &
 # -loop makes x11vnc restart if it crashes.
 # -repeat allows key and mouse events to be repeated if held down.
 # -shared allows multiple clients to connect simultaneously.
+# -rfbauth specifies the password file to use, which we created with 'x11vnc -storepasswd'.
 x11vnc -display :1 -forever -loop -repeat -shared -rfbauth ~/.vnc/passwd
 ```
 
