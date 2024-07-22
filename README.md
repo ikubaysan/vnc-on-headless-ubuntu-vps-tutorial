@@ -1,10 +1,12 @@
 # vnc-on-headless-vps-tutorial
 
 
-I opted for a Ubuntu 24.04 VPS. Should work for other versions of Ubuntu, and other debian-based distros.
+I opted for an Ubuntu 24.04 VPS. Should work for other versions of Ubuntu, and other debian-based distros.
 
 
-This command combines two commands:
+First SSH into your machine.
+
+Enter this command, which combines two commands:
 
 * `apt update` updates the list of available packages and their versions, but it does not install or upgrade any packages.
 
@@ -79,7 +81,7 @@ Now test the script by running it:
 ```
 
 You can now use SSH tunneling to connect to the VNC server. 
-Open a terminal/command prompt and enter the following, replacing the username and IP address with the VPS', 
+Open a separate terminal/command prompt and enter the following, replacing the username and IP address with the VPS', 
 and "5910" with whichever port you want to connect to on your local machine.
 Normally this would be 5900, but here we're using 5910 to avoid conflicts with local VNC servers you may have running.
 
@@ -107,7 +109,7 @@ Description=Start x11vnc at startup
 
 [Service]
 # Set the path to the bash script that starts the VNC server
-ExecStart=/home/ubuntu/start_vnc.sh
+ExecStart=/bin/bash /home/ubuntu/start_vnc.sh
 # Set the user this script should run as
 User=ubuntu
 # Restart the service if it crashes
